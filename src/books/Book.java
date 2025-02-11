@@ -26,6 +26,10 @@ public class Book {
         return "일반 (장르 X)";
     }
 
+    public String getAuthor() {return author;}
+
+    public int getYear() {return year;}
+
     // setter 메서드 -> title, author, year 변수는 protected 접근 제한자를 가지고 있음.
     public void setTitle(String title) {
         this.title = title;

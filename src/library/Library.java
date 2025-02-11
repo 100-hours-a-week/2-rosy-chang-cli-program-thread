@@ -90,4 +90,8 @@ public class Library {
             }
         }
     }
+
+    public List<Book> getBooks() {
+        return books;
+    }
 }

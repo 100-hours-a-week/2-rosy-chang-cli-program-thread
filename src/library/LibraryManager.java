@@ -7,12 +7,21 @@ import books.nonfiction.EconomicsBook;
 import books.nonfiction.HistoryBook;
 import books.nonfiction.PhilosophyBook;
 import books.textbooks.*;
+import thread.AutoSaveThread;
 
 import java.util.Scanner;
 
 public class LibraryManager {
     private Library library = new Library();
     private Scanner scanner = new Scanner(System.in);
+    private Thread thread;
+    private AutoSaveThread autoSaveThread;
+
+    public LibraryManager() {
+        autoSaveThread = new AutoSaveThread(library);
+        thread = new Thread(autoSaveThread);
+        thread.start();
+    }
 
     public void displayMainMenu() {
         System.out.println("\n♡(っ*’ᵕ’)’ᵕ’*c)♡   ◌ ｡˚✩( › ̫ ‹ )✩˚ ｡◌");
@@ -236,5 +245,10 @@ public class LibraryManager {
         scanner.nextLine();
 
         library.updateBook(oldTitle, newTitle, newAuthor, newYear);
+    }
+
+    // 프로그램 종료 시 자동 저장 스레드를 중지하는 메소드
+    public void stopAutoSave() {
+        autoSaveThread.stopThread();
     }
 }
