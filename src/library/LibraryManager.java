@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class LibraryManager {
     private Library library = new Library();
     private Scanner scanner = new Scanner(System.in);
-    private Thread thread;
+    public Thread thread;
     private AutoSaveThread autoSaveThread;
 
     public LibraryManager() {
