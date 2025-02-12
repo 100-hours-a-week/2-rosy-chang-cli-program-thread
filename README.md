@@ -7,17 +7,16 @@
 ---
 
 ## 🎯 **프로그램 동작 방식**
-
-**데이터 자동저장 스레드** <br>
+데이터 자동저장 스레드 <br>
 → 도서관 관리자가 책을 추가, 삭제, 수정할 때마다 자동으로 책 목록을 파일(.txt)로 저장한다.<br>
 → 백 그라운드에서 실행되며, 일정 간격(10초)에 1번씩 자동으로 저장된다.
 ---
 
 ## ⏯️ **프로그램 출력 화면**
-#### 스레드 작동 영상
+**스레드 작동 영상**
 ![Image](https://github.com/user-attachments/assets/e91c1c44-ca05-4a1b-9be5-7fccfa19814d)
 
-#### 자동 저장된 텍스트 파일 캡처 화면
+**자동 저장된 텍스트 파일 캡처 화면**
 <img width="663" alt="Image" src="https://github.com/user-attachments/assets/7d3c8bf3-13a6-48ae-b6b6-772de15fc47d" />
 
 ---
