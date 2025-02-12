@@ -12,7 +12,7 @@
 
 ## ⏯️ **프로그램 출력 화면**
 #### 스레드 작동 영상
-![Image](https://github.com/user-attachments/assets/8ae26521-f2ed-4d69-8ea1-d1edfa034fd4)
+![Image](https://github.com/user-attachments/assets/e91c1c44-ca05-4a1b-9be5-7fccfa19814d)
 
 #### 자동 저장된 텍스트 파일 캡처 화면
 <img width="663" alt="Image" src="https://github.com/user-attachments/assets/7d3c8bf3-13a6-48ae-b6b6-772de15fc47d" />
