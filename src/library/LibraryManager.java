@@ -23,6 +23,12 @@ public class LibraryManager {
         thread.start();
     }
 
+    // 프로그램 종료 시 자동 저장 스레드를 중지하는 메소드
+    public void stopAutoSave() {
+        autoSaveThread.stopThread();
+        thread.interrupt();
+    }
+
     public void displayMainMenu() {
         System.out.println("\n♡(っ*’ᵕ’)’ᵕ’*c)♡   ◌ ｡˚✩( › ̫ ‹ )✩˚ ｡◌");
         System.out.println("✿✧(♡⸃ ◡ ⸂♡)☆ 도서 관리 프로그램 ✿✧(♡⸃ ◡ ⸂♡)☆");
@@ -245,10 +251,5 @@ public class LibraryManager {
         scanner.nextLine();
 
         library.updateBook(oldTitle, newTitle, newAuthor, newYear);
-    }
-
-    // 프로그램 종료 시 자동 저장 스레드를 중지하는 메소드
-    public void stopAutoSave() {
-        autoSaveThread.stopThread();
     }
 }

@@ -10,6 +10,10 @@ public class Main {
     public static void main(String[] args) {
         LibraryManager manager = new LibraryManager();
 
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            manager.stopAutoSave();
+        }));
+        /*
         Runtime.getRuntime().addShutdownHook(new Thread(()-> {
             while (!Thread.currentThread().isInterrupted()) {
                 //manager.thread.interrupt();
@@ -21,7 +25,7 @@ public class Main {
                 }
             }
         }));
-
+        */
         manager.handleUserInput();
     }
 }

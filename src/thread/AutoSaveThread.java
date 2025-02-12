@@ -1,6 +1,8 @@
 package thread;
 
 
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
@@ -15,8 +17,13 @@ public class AutoSaveThread implements Runnable{
         this.library = library;
     }
 
-    public void stopThread() {
+    public void stopThread()  {
         running = false;
+        try {
+            saveLibraryData();
+        } catch (IOException e) {
+            System.out.println("자동 저장 중 오류가 발생했습니다! 에러 메시지: " + e.getMessage());
+        }
     }
 
     @Override
@@ -27,9 +34,12 @@ public class AutoSaveThread implements Runnable{
                 saveLibraryData();
             } catch (InterruptedException e) {
                 System.out.println("목록 자동 저장 스레드가 종료되었습니다!");
+                return;
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                //throw new RuntimeException(e);
+                System.out.println("자동 저장 중 오류가 발생했습니다! 에러 메시지: " + e.getMessage());
             }
+            return;
         }
     }
 
@@ -39,12 +49,16 @@ public class AutoSaveThread implements Runnable{
         try {
             for (Book book : books) {
                 fw.write(book.getTitle() + " | "
-                           + book.getCategory() + " | "
-                           + book.getAuthor() + " | "
-                           + book.getYear() + "\n");
+                        + book.getCategory() + " | "
+                        + book.getAuthor() + " | "
+                        + book.getYear() + "\n");
             }
             System.out.println();
+            System.out.println();
             System.out.println("** 자동 저장 완료! 도서 목록이 저장되었습니다! **");
+
+            fw.close();
+
         } catch (IOException e) {
             System.out.println("자동 저장 중 오류가 발생했습니다! 에러 메시지: " + e.getMessage());
         }
