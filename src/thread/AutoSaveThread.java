@@ -24,6 +24,7 @@ public class AutoSaveThread implements Runnable{
         } catch (IOException e) {
             System.out.println("자동 저장 중 오류가 발생했습니다! 에러 메시지: " + e.getMessage());
         }
+        System.out.println("도서 목록이 파일로 최종 저장 완료되었습니다~!");
     }
 
     @Override
@@ -33,8 +34,10 @@ public class AutoSaveThread implements Runnable{
                 Thread.sleep(10000);
                 saveLibraryData();
             } catch (InterruptedException e) {
-                System.out.println("목록 자동 저장 스레드가 종료되었습니다!");
-                return;
+                System.out.println("자동 저장 스레드가 인터럽트되었습니다!");
+                Thread.currentThread().interrupt(); // 인터럽트 상태 유지
+                break;
+                //return;
             } catch (IOException e) {
                 //throw new RuntimeException(e);
                 System.out.println("자동 저장 중 오류가 발생했습니다! 에러 메시지: " + e.getMessage());
